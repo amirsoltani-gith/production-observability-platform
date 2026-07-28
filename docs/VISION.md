@@ -1,45 +1,46 @@
-Vision
+# Vision
 
-Purpose
+## Purpose
 
 Production Observability Platform is a production-inspired Platform Engineering project designed to demonstrate how modern observability systems are architected, implemented, and operated.
 
 Rather than focusing only on tools, this repository emphasizes engineering decisions, system design, operational excellence, automation, and maintainability.
 
-⸻
+---
 
-Mission
+## Mission
 
-Build a complete observability platform using modern open-source technologies while following production-level engineering practices.
+Build a production-inspired observability platform using modern open-source technologies while following professional engineering practices.
 
 The project aims to simulate how a real Platform Engineering or Site Reliability Engineering (SRE) team designs and operates an observability stack.
 
-⸻
+---
 
-Objectives
+## Objectives
 
 * Build a production-inspired observability platform.
-* Apply Infrastructure as Code principles.
+* Implement Infrastructure as Code practices.
 * Implement monitoring, logging, tracing, and alerting.
 * Document every architectural decision.
 * Follow professional Git workflows.
 * Prioritize automation, reliability, and maintainability.
 
-⸻
+---
 
-Target Audience
+## Target Audience
 
 This project is intended for:
 
-* DevOps Engineers
 * Platform Engineers
-* Site Reliability Engineers (SRE)
-* Cloud Engineers
-* Students who want to learn production-grade observability
+* DevOps Engineers
+* Site Reliability Engineers (SREs)
+* System Administrators
+* Students building production-inspired home labs
+* Recruiters and hiring managers reviewing engineering portfolios
 
-⸻
+---
 
-Non-Goals
+## Non-Goals
 
 This repository is not intended to be:
 
@@ -48,9 +49,9 @@ This repository is not intended to be:
 * A showcase of every CNCF project
 * A production-ready commercial product
 
-⸻
+---
 
-Success Criteria
+## Success Criteria
 
 The project is successful if it:
 
@@ -58,11 +59,11 @@ The project is successful if it:
 * Is fully documented.
 * Can be reproduced easily.
 * Reflects production-inspired architecture.
-* Serves as a strong technical portfolio.
+* Serves as a professional engineering portfolio.
 
-⸻
+---
 
-Engineering Principles
+## Engineering Principles
 
 * Documentation before implementation.
 * Simplicity before complexity.
@@ -70,3 +71,4 @@ Engineering Principles
 * Security by default.
 * Reliability over shortcuts.
 * Continuous improvement.
+* Loose coupling through well-defined interfaces.

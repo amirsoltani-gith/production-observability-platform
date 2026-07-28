@@ -1,12 +1,10 @@
-Contributing Guide
+# Contributing Guide
 
 Thank you for your interest in contributing to the Production Observability Platform.
 
 This repository is maintained as a production-inspired engineering project. Every contribution should prioritize readability, maintainability, and long-term quality over short-term speed.
 
-⸻
-
-Development Principles
+## Development Principles
 
 Before opening a Pull Request, make sure your contribution:
 
@@ -16,11 +14,10 @@ Before opening a Pull Request, make sure your contribution:
 * Includes documentation updates when necessary.
 * Does not introduce unnecessary complexity.
 
-⸻
+## Branch Strategy
 
-Branch Strategy
-
-Use short-lived feature branches.
+Use Git Flow with short-lived feature branches created from the develop branch.
+Do not commit directly to the main branch for feature development.
 
 Examples:
 
@@ -31,11 +28,9 @@ Examples:
 
 Do not commit directly to the main branch for feature development.
 
-⸻
+## Commit Messages
 
-Commit Messages
-
-Follow the Conventional Commits specification.
+Follow the Conventional Commits specification for all commits.
 
 Examples:
 
@@ -44,17 +39,14 @@ Examples:
 * docs: update architecture documentation
 * refactor: simplify Docker Compose configuration
 
-⸻
-
-Documentation
+## Documentation
 
 Documentation is considered part of the project.
 
 Whenever architecture, infrastructure, or deployment changes, update the related documentation in the docs/ directory.
+Documentation updates should be included in the same Pull Request whenever possible.
 
-⸻
-
-Code Quality
+## Code Quality
 
 Before submitting changes:
 
@@ -63,8 +55,6 @@ Before submitting changes:
 * Avoid committing secrets.
 * Keep commits focused and atomic.
 
-⸻
+## Engineering Philosophy
 
-Engineering Philosophy
-
-The objective of this repository is not only to deploy software, but also to demonstrate engineering thinking, operational excellence, and production-ready practices.
+The objective of this repository is not only to deploy software, but also to demonstrate sound engineering practices, operational excellence, and production-inspired design.
