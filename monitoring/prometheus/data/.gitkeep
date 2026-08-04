@@ -1,0 +1,14 @@
+monitoring/prometheus/data/*
+!monitoring/prometheus/data/.gitkeep
+
+monitoring/grafana/data/*
+!monitoring/grafana/data/.gitkeep
+
+monitoring/loki/data/*
+!monitoring/loki/data/.gitkeep
+
+monitoring/tempo/data/*
+!monitoring/tempo/data/.gitkeep
+
+monitoring/alertmanager/data/*
+!monitoring/alertmanager/data/.gitkeep
