@@ -17,6 +17,28 @@ services:
     networks:
       - observability
 
+  grafana:
+    image: grafana/grafana:${GRAFANA_VERSION}
+    restart: unless-stopped
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD}
+
+    volumes:
+      - ./grafana/data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+
+    depends_on:
+      - prometheus
+
+    networks:
+      - observability
+
   node-exporter:
     image: prom/node-exporter:v${NODE_EXPORTER_VERSION}
     restart: unless-stopped
