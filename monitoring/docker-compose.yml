@@ -1,6 +1,6 @@
 services:
   prometheus:
-    image: prom/prometheus:v3.5.0
+    image: prom/prometheus:v${PROMETHEUS_VERSION}
     restart: unless-stopped
 
     ports:
@@ -13,6 +13,26 @@ services:
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"
+
+    networks:
+      - observability
+
+  node-exporter:
+    image: prom/node-exporter:v${NODE_EXPORTER_VERSION}
+    restart: unless-stopped
+
+    ports:
+      - "9100:9100"
+
+    networks:
+      - observability
+    
+  cadvisor:
+    image: ghcr.io/google/cadvisor:v${CADVISOR_VERSION}
+    restart: unless-stopped
+
+    ports:
+      - "8088:8080"
 
     networks:
       - observability
