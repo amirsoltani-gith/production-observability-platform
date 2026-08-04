@@ -1,129 +1,257 @@
 # Research
 
-## Purpose
+## Overview
 
-The research section provides the technical foundation for this repository.
+The research section contains the engineering knowledge that supports every architectural, implementation, and operational decision in this repository.
 
-Its purpose is not to collect notes or summarize technologies.
+This is **not** a collection of personal notes.
 
-Every research document exists to support future engineering decisions, architecture design, Architecture Decision Records (ADRs), implementation, and operational practices.
+It is a structured engineering knowledge base built to explain the concepts, design principles, trade-offs, and operational practices behind a production-grade observability platform.
 
-Research should always answer why a technology or concept exists before explaining how it works.
-
----
-
-## Research Philosophy
-
-This repository follows an engineering-first approach.
-
-Research leads to Architecture.
-
-Architecture leads to ADRs.
-
-ADRs lead to Implementation.
-
-Implementation leads to Operations.
-
-The goal is to understand engineering trade-offs rather than memorize tools.
+Every implementation in this repository is backed by prior research.
 
 ---
 
-## Repository Organization
+# Learning Path
 
-Research is organized by engineering domains instead of individual tools.
+The recommended reading order is:
 
-Current domains include:
-
-- Fundamentals
-- Monitoring
-- Metrics
-- Logging
-- Tracing
-- Alerting
-- Reliability
-- SRE
-- Platform Engineering
-- Capacity Planning
-- Root Cause Analysis
-- AI Operations
+```text
+Foundations
+      │
+      ▼
+Reliability Engineering
+      │
+      ▼
+Platform Components
+      │
+      ▼
+Architecture
+      │
+      ▼
+Implementation
+      │
+      ▼
+Operations
+      │
+      ▼
+Continuous Improvement
+```
 
 ---
 
-## Research Standards
+# Table of Contents
+
+## Foundations
+
+| # | Document |
+|---|----------|
+| 01 | Why Observability |
+| 02 | Monitoring vs Observability |
+| 03 | Three Pillars of Observability |
+| 04 | Observability Maturity Model |
+| 05 | Observability Signals and Telemetry Model |
+| 06 | OpenTelemetry Fundamentals |
+| 07 | Instrumentation Fundamentals |
+| 08 | Observability Design Principles |
+| 09 | Four Golden Signals |
+| 10 | RED and USE Methodologies |
+| 11 | SLI, SLO and SLA |
+| 12 | Error Budgets |
+| 13 | Incident Response |
+| 14 | Postmortems |
+| 15 | Alert Fatigue and Alert Design |
+
+---
+
+## Upcoming Topics
+
+### Prometheus
+
+- Prometheus Architecture
+- Prometheus Data Model
+- PromQL Fundamentals
+- Recording Rules
+- Alerting Rules
+
+### Alertmanager
+
+- Architecture
+- Routing
+- Grouping
+- Silencing
+- Inhibition
+- Notification Templates
+
+### Grafana
+
+- Architecture
+- Dashboards
+- Variables
+- Transformations
+- Provisioning
+
+### Loki
+
+- Architecture
+- LogQL
+- Labels
+- Pipelines
+- Storage
+
+### Tempo
+
+- Architecture
+- TraceQL
+- Trace Storage
+- Trace Correlation
+
+### OpenTelemetry
+
+- Collector Architecture
+- Receivers
+- Processors
+- Exporters
+- Pipelines
+
+### Kubernetes Observability
+
+- kube-state-metrics
+- Node Exporter
+- cAdvisor
+- ServiceMonitor
+- PodMonitor
+
+---
+
+# Research Philosophy
 
 Every research document should answer the following questions whenever applicable:
 
 - What problem does this solve?
-- Why does this exist?
+- Why does it exist?
 - What are the alternatives?
+- What are the engineering trade-offs?
 - What are the advantages?
 - What are the disadvantages?
-- What operational complexity does it introduce?
 - How does it scale?
+- What operational complexity does it introduce?
 - When should it be used?
 - When should it not be used?
-- What are the engineering trade-offs?
 
-Research documents should prioritize engineering thinking over feature descriptions.
-
----
-
-## Relationship to Architecture
-
-Research findings provide the foundation for future architecture designs.
-
-Architectural decisions should reference relevant research whenever possible.
+Research should always prioritize engineering decisions over feature descriptions.
 
 ---
 
-## Relationship to ADRs
+# Engineering Workflow
 
-Major engineering decisions should be documented as ADRs.
+Every implementation in this repository follows the same engineering workflow.
 
-Each ADR should be supported by previous research rather than personal preference.
-
----
-
-## Relationship to Implementation
-
-Implementation should validate research through practical, production-inspired examples.
-
-No implementation should exist without a clear engineering purpose.
-
----
-
-## Document Naming Convention
-
-Documents use sequential numbering within each domain.
-
-Example:
-
-- 01-why-observability.md
-- 02-monitoring-vs-observability.md
-- 03-golden-signals.md
-
----
-
-## Repository Workflow
-
+```text
 Research
-
-↓
-
+    │
+    ▼
 Architecture
-
-↓
-
-ADR
-
-↓
-
+    │
+    ▼
+Architecture Decision Records (ADR)
+    │
+    ▼
 Implementation
-
-↓
-
+    │
+    ▼
+Validation
+    │
+    ▼
 Operations
+    │
+    ▼
+Continuous Improvement
+```
 
-↓
+---
 
-Production Review
+# Repository Standards
+
+Every research document should:
+
+- Follow the standard document template.
+- Explain the engineering problem before the solution.
+- Focus on production-oriented concepts.
+- Include practical examples where appropriate.
+- Include diagrams when they improve understanding.
+- Discuss trade-offs rather than presenting technologies as universally correct.
+- Include Production Considerations.
+- Include Common Anti-patterns.
+- Include Best Practices.
+- Include References for further study.
+
+---
+
+# Audience
+
+This research is intended for engineers working in modern cloud-native environments, including:
+
+- DevOps Engineers
+- Site Reliability Engineers (SREs)
+- Platform Engineers
+- Cloud Engineers
+- Infrastructure Engineers
+- Kubernetes Engineers
+
+---
+
+# Repository Structure
+
+```text
+research/
+├── README.md
+├── fundamentals/
+├── monitoring/
+├── logging/
+├── tracing/
+├── metrics/
+├── alerting/
+├── reliability/
+├── sre/
+├── platform-engineering/
+├── capacity-planning/
+└── ai-operations/
+```
+
+The repository will continue to grow as new research domains are added.
+
+---
+
+# Current Status
+
+## ✅ Completed
+
+- Foundations
+- Reliability Engineering
+
+## 🚧 In Progress
+
+- Review Sprint
+
+## ⏳ Planned
+
+- Prometheus
+- Alertmanager
+- Grafana
+- Loki
+- Tempo
+- OpenTelemetry Collector
+- Kubernetes Observability
+- Production Deployment
+- High Availability
+- Scaling
+- Performance Tuning
+
+---
+
+# Guiding Principle
+
+> Understand the engineering principles first.  
+> Choose the right architecture second.  
+> Implement the solution last.
