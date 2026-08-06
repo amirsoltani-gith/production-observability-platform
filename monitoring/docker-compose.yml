@@ -9,10 +9,29 @@ services:
     volumes:
       - ./prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./prometheus/data:/prometheus
+      - ./prometheus/rules:/etc/prometheus/rules:ro
 
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"
+
+    networks:
+      - observability
+
+  alertmanager:
+    image: prom/alertmanager:v${ALERTMANAGER_VERSION}
+    restart: unless-stopped
+
+    ports:
+      - "9093:9093"
+
+    volumes:
+      - ./alertmanager/config/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
+      - ./alertmanager/data:/alertmanager
+
+    command:
+      - "--config.file=/etc/alertmanager/alertmanager.yml"
+      - "--storage.path=/alertmanager"
 
     networks:
       - observability
