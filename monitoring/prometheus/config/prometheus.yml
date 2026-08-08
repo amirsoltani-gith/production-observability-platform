@@ -3,8 +3,8 @@ global:
   evaluation_interval: 15s
 
 rule_files:
-  - /etc/prometheus/rules/*.yml
   - /etc/prometheus/rules/recording/*.yml
+  - /etc/prometheus/rules/alerts/*.yml
 
 alerting:
   alertmanagers:

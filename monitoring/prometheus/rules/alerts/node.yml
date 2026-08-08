@@ -1,0 +1,27 @@
+groups:
+  - name: node-alerts
+    interval: 30s
+
+    rules:
+      - alert: NodeExporterDown
+        expr: up{job="node-exporter"} == 0
+        for: 2m
+
+        labels:
+          severity: critical
+
+        annotations:
+          summary: "Node Exporter is down"
+          description: "Node Exporter on {{ $labels.instance }} has been down for more than 2 minutes."
+
+
+      - alert: HighCPUUsage
+        expr: instance:node_cpu_utilisation:rate5m > 80
+        for: 5m
+
+        labels:
+          severity: warning
+
+        annotations:
+          summary: "High CPU usage detected"
+          description: "CPU usage on {{ $labels.instance }} is above 80% for 5 minutes."
