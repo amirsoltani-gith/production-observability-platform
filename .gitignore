@@ -148,3 +148,10 @@ prometheus.yml.bak
 
 *.bak
 *.old
+
+# ==========================================================
+# Alertmanager Secrets
+# ==========================================================
+
+monitoring/alertmanager/secrets/*
+!monitoring/alertmanager/secrets/.gitkeep
