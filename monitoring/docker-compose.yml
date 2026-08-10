@@ -28,6 +28,7 @@ services:
     volumes:
       - ./alertmanager/config/alertmanager.yml:/etc/alertmanager/alertmanager.yml:ro
       - ./alertmanager/data:/alertmanager
+      - ./alertmanager/secrets:/etc/alertmanager/secrets:ro
 
     command:
       - "--config.file=/etc/alertmanager/alertmanager.yml"
