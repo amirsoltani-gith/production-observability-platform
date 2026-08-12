@@ -14,7 +14,6 @@ groups:
           summary: "Node Exporter is down"
           description: "Node Exporter on {{ $labels.instance }} has been down for more than 2 minutes."
 
-
       - alert: HighCPUUsage
         expr: instance:node_cpu_utilisation:rate5m > 80
         for: 5m
@@ -25,3 +24,59 @@ groups:
         annotations:
           summary: "High CPU usage detected"
           description: "CPU usage on {{ $labels.instance }} is above 80% for 5 minutes."
+
+      - alert: HighMemoryUsage
+        expr: |
+          100 * (
+            1 -
+            node_memory_MemAvailable_bytes
+            /
+            node_memory_MemTotal_bytes
+          ) > 80
+        for: 5m
+
+        labels:
+          severity: warning
+
+        annotations:
+          summary: "High memory usage detected"
+          description: "Memory usage on {{ $labels.instance }} is above 80% for 5 minutes."
+
+      - alert: PrometheusDown
+        expr: up{job="prometheus"} == 0
+        for: 2m
+
+        labels:
+          severity: critical
+
+        annotations:
+          summary: "Prometheus is down"
+          description: "Prometheus on {{ $labels.instance }} has been down for more than 2 minutes."
+
+      - alert: HighDiskUsage
+        expr: |
+          100 * (
+            1 -
+            node_filesystem_avail_bytes{fstype!="tmpfs"}
+            /
+            node_filesystem_size_bytes{fstype!="tmpfs"}
+          ) > 85
+        for: 10m
+
+        labels:
+          severity: warning
+
+        annotations:
+          summary: "High disk usage detected"
+          description: "Disk usage on {{ $labels.instance }} mount {{ $labels.mountpoint }} is above 85%."
+
+      - alert: AlertmanagerDown
+        expr: up{job="alertmanager"} == 0
+        for: 2m
+
+        labels:
+          severity: critical
+
+        annotations:
+          summary: "Alertmanager is down"
+          description: "Alertmanager on {{ $labels.instance }} has been down for more than 2 minutes."
