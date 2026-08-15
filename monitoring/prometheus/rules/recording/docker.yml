@@ -1,0 +1,29 @@
+groups:
+  - name: docker-recording
+
+    interval: 30s
+
+    rules:
+
+      - record: container:cpu_usage_seconds:rate5m
+
+        expr: |
+          rate(container_cpu_usage_seconds_total[5m])
+
+
+      - record: container:memory_usage_bytes
+
+        expr: |
+          container_memory_usage_bytes
+
+
+      - record: container:network_receive_bytes:rate5m
+
+        expr: |
+          rate(container_network_receive_bytes_total[5m])
+
+
+      - record: container:network_transmit_bytes:rate5m
+
+        expr: |
+          rate(container_network_transmit_bytes_total[5m])
