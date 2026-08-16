@@ -1,0 +1,53 @@
+groups:
+  - name: docker-alerts
+
+    rules:
+
+      - alert: CAdvisorDown
+        expr: up{job="cadvisor"} == 0
+        for: 2m
+
+        labels:
+          severity: critical
+
+        annotations:
+          summary: "cAdvisor is down"
+          description: "cAdvisor metrics endpoint has been unavailable for more than 2 minutes."
+
+
+      - alert: DockerHighCPUUsage
+        expr: |
+          (
+            sum by(instance)(
+              rate(container_cpu_usage_seconds_total{id!=""}[5m])
+            )
+            /
+            on(instance)
+            machine_cpu_cores
+          ) * 100 > 80
+
+        for: 5m
+
+        labels:
+          severity: warning
+
+        annotations:
+          summary: "High Docker CPU usage"
+          description: "Docker containers CPU usage is above 80% for 5 minutes."
+
+
+      - alert: DockerHighMemoryUsage
+        expr: |
+          sum(container_memory_usage_bytes{id!=""})
+          /
+          sum(machine_memory_bytes)
+          * 100 > 80
+
+        for: 5m
+
+        labels:
+          severity: warning
+
+        annotations:
+          summary: "High Docker memory usage"
+          description: "Docker containers memory usage is above 80%."
